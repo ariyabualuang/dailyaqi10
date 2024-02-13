@@ -1,0 +1,14 @@
+{
+    "builds" : [
+        {
+            "src":"app2.js",
+            "use":"@now/node"
+        }
+    ],
+    "routes": [
+        {
+            "src":"/(.*)",
+            "dest":"index.js"
+        }
+    ]
+}
