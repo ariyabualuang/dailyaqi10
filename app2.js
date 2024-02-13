@@ -7,7 +7,7 @@ var health="";
 var todo= "";
 var todo2 = "";
 var color = "";
-scheduleJob('07 21 * * *', async () => {
+scheduleJob('25 22 * * *', async () => {
     try {
         const { data } = await axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b');
         console.log(data);
