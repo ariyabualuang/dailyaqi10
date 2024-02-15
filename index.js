@@ -123,20 +123,20 @@ var color = "";
             }]
         );
         health="";
+        app.get('/', (req, res) => {
+            res.status(200).json(aqi);
+          })
+          
+          
+          app.listen(PORT, () => {
+            console.log(`Server running at http://localhost:${PORT}`);
+          });
+        
+          
+          // Export the Express API
+          module.exports = app
     })
     } catch (e) {
         console.log(e);
     }
 //})
-app.get('/', (req, res) => {
-    res.status(200).json('Welcome, your app is working well 55');
-  })
-  
-  
-  app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-  });
-
-  
-  // Export the Express API
-  module.exports = app
