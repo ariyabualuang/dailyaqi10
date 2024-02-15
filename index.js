@@ -11,6 +11,8 @@ var todo= "";
 var todo2 = "";
 var color = "";
 //scheduleJob('52 10 * * *', async () => {
+app.get('/', (req, res) => {
+      
     try {
         var aqi;
         axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b')
@@ -123,14 +125,10 @@ var color = "";
             }]
         );
         health="";
-        app.get('/', (req, res) => {
-            res.status(200).json(aqi);
-          })
+        
           
           
-          app.listen(PORT, () => {
-            console.log(`Server running at http://localhost:${PORT}`);
-          });
+          
         
           
           // Export the Express API
@@ -139,4 +137,10 @@ var color = "";
     } catch (e) {
         console.log(e);
     }
+    res.status(200).json(aqi);
+
 //})
+})
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
