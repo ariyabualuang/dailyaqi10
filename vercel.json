@@ -15,7 +15,7 @@
      "crons": [
           {
             "path": "/",
-            "schedule": "25 12 * * *"
+            "schedule": "00 07 * * *"
           }
     ]
       
