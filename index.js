@@ -11,7 +11,7 @@ var todo= "";
 var todo2 = "";
 var color = "";
 //scheduleJob('52 10 * * *', async () => {
- //   try {
+    try {
         var aqi;
         axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b')
         .then(function (response) {
@@ -122,10 +122,11 @@ var color = "";
                 }
             }]
         );
-        health="";})
-  //  } catch (e) {
- ///       console.log(e);
-  //  }
+        health="";
+    })
+    } catch (e) {
+        console.log(e);
+    }
 //})
 app.get('/', (req, res) => {
     res.status(200).json('Welcome, your app is working well 55');
