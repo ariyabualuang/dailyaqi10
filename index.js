@@ -4,6 +4,7 @@ const PORT = 4000
 const axios = require("axios");
 const moment = require("moment");
 const { scheduleJob } = require('node-schedule');
+const asyncHandler = require('express-async-handler')
 
 const { sendLineMsgBroadcast } = require('./line');
 var health="";
@@ -11,11 +12,11 @@ var todo= "";
 var todo2 = "";
 var color = "";
 //scheduleJob('52 10 * * *', async () => {
-app.get('/', (req, res) => {
+app.get('/', asyncHandler(async (req, res, next)=> {
       
     try {
         var aqi;
-        axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b')
+        await axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b')
         .then(function (response) {
             console.log("GET Response")
             console.log(response.data);
@@ -140,7 +141,7 @@ app.get('/', (req, res) => {
     res.status(200).json(aqi);
 
 //})
-})
+}))
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
   });
