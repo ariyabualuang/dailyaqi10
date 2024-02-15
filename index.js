@@ -10,11 +10,17 @@ var health="";
 var todo= "";
 var todo2 = "";
 var color = "";
-scheduleJob('50 10 * * *', async () => {
-    try {
-        const { data } = await axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b');
-        console.log(data);
-        var aqi = data.data.current.pollution.aqius;
+//scheduleJob('52 10 * * *', async () => {
+ //   try {
+        var aqi;
+        axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b')
+        .then(function (response) {
+            console.log("GET Response")
+            console.log(response.data);
+            aqi = response.data.data.current.pollution.aqius;
+            
+          
+        console.log(aqi);
         if (aqi<=50){
             health = "ดี"; 
             todo = "สามารถดำเนินกิจกรรมได้ตามปกติ";
@@ -52,7 +58,7 @@ scheduleJob('50 10 * * *', async () => {
             color = "#a06a7b";
         }
 
-        await sendLineMsgBroadcast(
+         sendLineMsgBroadcast(
             [{
                 "type": "flex",
                 "altText": "Daily AQI",
@@ -116,11 +122,11 @@ scheduleJob('50 10 * * *', async () => {
                 }
             }]
         );
-        health="";
-    } catch (e) {
-        console.log(e);
-    }
-})
+        health="";})
+  //  } catch (e) {
+ ///       console.log(e);
+  //  }
+//})
 app.get('/', (req, res) => {
     res.status(200).json('Welcome, your app is working well 50');
   })
