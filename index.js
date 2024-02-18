@@ -134,7 +134,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
         
           
           // Export the Express API
-          //module.exports = app
+          module.exports = app
     
     } catch (e) {
         console.log(e);
