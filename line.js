@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const channelAccessToken  = "P84OQmF81ePgcbcVR+sNMslN3aOS5vRMcNUsswNFy8bRwfyY2fYFQMMskxLDC1wrth9006edLeyeAo+63amYlJgth5XtLo2nMXYSytF4jldG8tH2QDF6+73oX2dGAyKKOgqtsvHalqyRit3HA3nrGgdB04t89/1O/w1cDnyilFU=";
+const channelAccessToken  = "mhfoz6dR56oza7pbTl8rLIGkDlFzDSxeJ+wlmMQvLl1mfBgUfmokS0x+J2LUebj+erc6uNXAZ0TR0cEUORlnsoYPjxum4lUrmXShI0PNaZx5bNDsAQ8M5KkpPxytkJ/MkJ0K5cupsledAzvyqDIgRAdB04t89/1O/w1cDnyilFU=";
 
 module.exports = {
     sendLineMsgBroadcast: async (messages, token = channelAccessToken) => {
