@@ -15,7 +15,7 @@ module.exports = {
                 },
                 data: { messages }
             });
-            
+            console.log("sent ok");
             return status;
         } catch (e) {
             throw Error(e);
