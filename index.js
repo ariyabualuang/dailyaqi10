@@ -19,11 +19,11 @@ app.get('/', asyncHandler(async (req, res, next)=> {
       
     try {
         var aqi;
-        await axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b')
-        .then(function (response) {
-            console.log("GET Response")
-            console.log(response.data);
-            aqi = response.data.data.current.pollution.aqius;
+        const { data } = await axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b');
+        
+        console.log("GET Response")
+        console.log(data);
+        aqi = data.data.current.pollution.aqius;
             
           
         console.log(aqi);
@@ -64,7 +64,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
             color = "#a06a7b";
         }
 
-        sendLineMsgBroadcast(
+        await sendLineMsgBroadcast(
             [{
                 "type": "flex",
                 "altText": "Daily AQI",
@@ -137,7 +137,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
           
           // Export the Express API
           module.exports = app
-    })
+    
     } catch (e) {
         console.log(e);
     }
