@@ -2,10 +2,11 @@ const express = require('express')
 const app = express()
 const PORT = 4000
 const axios = require("axios");
+const moment = require("moment");
+const { scheduleJob } = require('node-schedule');
 const asyncHandler = require("express-async-handler");
+
 const { sendLineMsgBroadcast } = require('./line');
-//const moment = require("moment");
-//const { scheduleJob } = require('node-schedule');
 var health="";
 var todo= "";
 var todo2 = "";
@@ -24,6 +25,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
         console.log(data);
         aqi = data.data.current.pollution.aqius;
             
+          
         console.log(aqi);
         if (aqi<=50){
             health = "ดี"; 
