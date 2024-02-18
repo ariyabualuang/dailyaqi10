@@ -12,7 +12,9 @@ var todo= "";
 var todo2 = "";
 var color = "";
 //scheduleJob('52 10 * * *', async () => {
-
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
 app.get('/', asyncHandler(async (req, res, next)=> {
       
     try {
@@ -127,9 +129,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
             }]
         );
         health="";
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-  });      
+        
           
           
           
