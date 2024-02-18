@@ -19,7 +19,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
         var aqi;
         const { data } = await axios.get('http://api.airvisual.com/v2/city?city=salaya&state=nakhon-pathom&country=Thailand&key=05a6879e-ab5a-4995-a3a5-a8c1f0fb708b');
         
-        console.log("GET Response")
+        console.log("GET Response");
         console.log(data);
         aqi = data.data.current.pollution.aqius;
             
@@ -129,8 +129,7 @@ app.get('/', asyncHandler(async (req, res, next)=> {
         health="";
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-});
-        
+  });      
           
           
           
